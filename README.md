@@ -1,4 +1,4 @@
-# vulppkg
+# vulppkgs
 
 random nix modules
 
