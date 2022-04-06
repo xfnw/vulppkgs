@@ -13,8 +13,8 @@ let fbflut =
     src = fetchFromGitHub {
       owner = "xfnw";
       repo = "fbflut";
-      rev = "e771a4bb108b862e785f590c629a50aa553137e5";
-      sha256 = "sha256-oJC2RhIEdnUZ3mO5fKFSNqNCSKjAStO7GYNA6PT3zrE=";
+      rev = "532e731e9c3757f3c26080effe3861e79301421f";
+      sha256 = "sha256-0AmV273jjh+2fVbXnNw6hUWqXeEK08QE9PEzJLT0I7o=";
     };
 
     postConfigure = ''
