@@ -9,8 +9,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = "dotfiles";
-    rev = "48feef1d879dfa8bd5e1a2c2c53e00d3fca4eb08";
-    sha256 = "sha256-wCskhPknfTso3ZYeKfTSATXDyzkZUJh8WP2VV4vQxNU=";
+    rev = "ff0805b2a91634bd2d8c26c017a581f67520cbca";
+    sha256 = "sha256-yGwyYSewbaPPjsLkMc5ZxnDHeLF2cZr8vmn1zbTsfAA=";
   };
 
   buildInputs = [ openssl ];
