@@ -1,0 +1,14 @@
+{
+  "tag": "fb8641f-master",
+  "meta": {
+    "name": "buildslist",
+    "url": "https://git.immae.eu/perso/Immae/Projets/Buildbot/buildslist",
+    "branch": "master"
+  },
+  "git": {
+    "url": "https://git.immae.eu/perso/Immae/Projets/Buildbot/buildslist",
+    "rev": "fb8641f2badcec9f232cc5f727009911fc1c89b0",
+    "sha256": "0hgz5yaq0mz9lvfywbkbjap7z55839k18vfyg1yhx6l1mvvbq8zc",
+    "fetchSubmodules": true
+  }
+}

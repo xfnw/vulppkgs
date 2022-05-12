@@ -1,0 +1,15 @@
+{
+  "tag": "3da0e4a-master",
+  "meta": {
+    "name": "telegram-cli",
+    "url": "https://github.com/kenorb-contrib/tg/",
+    "branch": "master"
+  },
+  "github": {
+    "owner": "kenorb-contrib",
+    "repo": "tg",
+    "rev": "3da0e4a54c3a63cee11aae3c23f2077adfc4949d",
+    "sha256": "0pvswzajipzkk1x5cyf10dw18ka9jalar0aa2i7y23ifm4ddnif4",
+    "fetchSubmodules": true
+  }
+}
