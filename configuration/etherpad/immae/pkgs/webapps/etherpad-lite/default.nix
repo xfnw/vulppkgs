@@ -1,4 +1,4 @@
-{ varDir ? "/var/lib/etherpad-lite" # if you override this change the StateDirectory in service file too!
+{ varDir ? "/var/lib/etherpad" # if you override this change the StateDirectory in service file too!
 , stdenv, callPackage, mylibs, fetchurl }:
 let
   jquery = fetchurl {
