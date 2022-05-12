@@ -14,7 +14,7 @@ rec {
     lib.attrsets.genAttrs names
       (name: callPackage (./dokuwiki/plugins + "/${name}.nix") {});
 
-  etherpad-lite = callPackage ./etherpad-lite {};
+  etherpad-lite = callPackage ./etherpad-lite { inherit mylibs; };
   etherpad-lite-with-modules = etherpad-lite.withModules (builtins.attrValues etherpad-lite-modules);
   etherpad-lite-modules = let
     nodeEnv = callPackage mylibs.nodeEnv {};

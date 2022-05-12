@@ -4,7 +4,7 @@
 # https://git.thalheim.io/Mic92/stockholm/src/branch/master/makefu/3modules/etherpad.nix
 
 let
-  immae = import ./immae/pkgs;
+  immae = import ./immae/pkgs { inherit pkgs; };
   name = "etherpad";
   cfg = config.services.etherpad;
 in
@@ -41,18 +41,20 @@ in
         The config file path for Etherpad.
         '';
     };
-    sessionKeyFile = lib.mkOption {
-      type = lib.types.path;
-      description = ''
-        The Session key file path for Etherpad.
-        '';
-    };
-    apiKeyFile = lib.mkOption {
-      type = lib.types.path;
-      description = ''
-        The API key file path for Etherpad.
-        '';
-    };
+    #sessionKeyFile = lib.mkOption {
+    #  type = lib.types.path;
+    #  default = null;
+    #  description = ''
+    #    The Session key file path for Etherpad.
+    #    '';
+    #};
+    #apiKeyFile = lib.mkOption {
+    #  type = lib.types.path;
+    #  default = null;
+    #  description = ''
+    #    The API key file path for Etherpad.
+    #    '';
+    #};
     package = lib.mkOption {
       type = lib.types.package;
       default = immae.webapps.etherpad-lite;
@@ -111,17 +113,17 @@ in
     systemd.services.etherpad = {
       description = "Etherpad";
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" "postgresql.service" ];
-      wants = [ "postgresql.service" ];
-      environment.NODE_ENV = "production";
+      after = [ "network.target" ]; #"postgresql.service" ];
+      wants = [ ]; #"postgresql.service" ];
+      #environment.NODE_ENV = "production";
       environment.HOME = cfg.workdir;
       path = [ pkgs.nodejs ];
       script = ''
         exec ${pkgs.nodejs}/bin/node ${cfg.workdir}/src/node/server.js \
-          --sessionkey ${cfg.sessionKeyFile} \
-          --apikey ${cfg.apiKeyFile} \
           --settings ${cfg.configFile}
       '';
+          #--sessionkey ${cfg.sessionKeyFile} \
+          #--apikey ${cfg.apiKeyFile} \
       postStart = ''
         while [ ! -S ${cfg.sockets.node} ]; do
           sleep 0.5
@@ -146,7 +148,7 @@ in
         StateDirectory= cfg.systemdStateDirectory;
         ExecStartPre = [
           "+${pkgs.coreutils}/bin/install -d -m 0755 -o ${cfg.user} -g ${cfg.group} ${cfg.dataDir}/ep_initialized"
-          "+${pkgs.coreutils}/bin/chown -R ${cfg.user}:${cfg.group} ${cfg.dataDir} ${cfg.configFile} ${cfg.sessionKeyFile} ${cfg.apiKeyFile}"
+          "+${pkgs.coreutils}/bin/chown -R ${cfg.user}:${cfg.group} ${cfg.dataDir} ${cfg.configFile}" # ${cfg.sessionKeyFile} ${cfg.apiKeyFile}"
         ];
       };
     };
