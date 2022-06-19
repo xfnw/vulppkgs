@@ -4,13 +4,13 @@
 
 stdenv.mkDerivation rec {
   pname = "scirc";
-  version = "1.3.1";
+  version = "1.4";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = "scirc";
     rev = "v${version}";
-    sha256 = "sha256-i+qRs4xWDZjJCsrZGUDqwu3OJc4QuPpE9SEE3EZNRPo=";
+    sha256 = "sha256-7hmWfr0NxrHy3BlfVgmfDWgjaOHwLl3jG2hDKjRH/Gk=";
   };
 
   installPhase = ''
