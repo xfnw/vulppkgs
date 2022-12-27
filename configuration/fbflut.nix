@@ -9,13 +9,13 @@ let
   fbflut =
     stdenv.mkDerivation rec {
       pname = "fbflut";
-      version = "unstable-2022-03-14";
+      version = "unstable-2022-12-03";
 
       src = fetchFromGitHub {
         owner = "xfnw";
         repo = "fbflut";
-        rev = "02554ea5472cc92b1dd30c0fadb960af0e804cda";
-        sha256 = "sha256-sX/DgeA9HXDswnENaeVcuF2tIDlXv1ddNQhR9iR5Bkk=";
+        rev = "8dfced7399d25f4237cb15b307bbe2f8d62e2ac5";
+        sha256 = "sha256-rTm+LgjaTMNrKFf2QQt7rpQb2otN1gebEUvXW0ge+eA=";
       };
 
       postConfigure = ''
