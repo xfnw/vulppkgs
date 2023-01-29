@@ -14,8 +14,8 @@ let
       src = fetchFromGitHub {
         owner = "xfnw";
         repo = "fbflut";
-        rev = "8dfced7399d25f4237cb15b307bbe2f8d62e2ac5";
-        sha256 = "sha256-rTm+LgjaTMNrKFf2QQt7rpQb2otN1gebEUvXW0ge+eA=";
+        rev = "c5a243df89ee58d06ea3b0a43179109633c60bd3";
+        sha256 = "sha256-qPFeMXuF/Z5hBqtYapJ4O0YfWZV8MTQsGrnzv2JsBGU=";
       };
 
       postConfigure = ''
