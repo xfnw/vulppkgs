@@ -6,6 +6,7 @@
 with pkgs;
 
 let
+  gcfg = config.services.getty;
   fbflut =
     stdenv.mkDerivation rec {
       pname = "fbflut";
@@ -33,5 +34,10 @@ in
     group = "video";
     shell = "${fbflut}/bin/fbflut";
   };
-  services.getty.autologinUser = "fbflut";
+
+  systemd.services."getty@tty1".overrideStrategy = "asDropin";
+  systemd.services."getty@tty1".serviceConfig.ExecStart = [
+    ""
+    "@${pkgs.util-linux}/sbin/agetty agetty --login-program ${gcfg.loginProgram} --autologin fbflut --noclear --keep-baud %I 115200,38400,9600 $TERM"
+    ];
 }
