@@ -6,7 +6,7 @@
   services.postgresql.ensureDatabases = [ "hockeypuck" ];
   services.postgresql.ensureUsers = [{
     name = "hockeypuck";
-    ensurePermissions."DATABASE hockeypuck" = "ALL PRIVILEGES";
+    ensureDBOwnership = true;
   }];
 
   services.hockeypuck = {
