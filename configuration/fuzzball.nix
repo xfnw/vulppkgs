@@ -24,9 +24,6 @@ let
         sha256 = "sha256-tZvqfa0hCpeYinCgLfVpzhX9PiIr4HlKRAwuRILJz+g=";
       };
 
-      # fuzzball uses insecure non-static format strings
-      hardeningDisable = [ "format" ];
-
       buildInputs = [ pkgs.pcre.dev ];
 
       configurePhase = ''
