@@ -15,13 +15,13 @@ let
   fuzzball =
     stdenv.mkDerivation rec {
       pname = "fuzzball";
-      version = "unstable-2024-01-14";
+      version = "unstable-2024-01-28";
 
       src = fetchFromGitHub {
         owner = "fuzzball-muck";
         repo = "fuzzball";
-        rev = "402d60dbfaa3a41c14a6ec4bb560e07400459ad7";
-        sha256 = "sha256-evFPXblaxCLTCXQC3eQLeBg0NWXnWI+dQEZwk02gh3U=";
+        rev = "4edc578c2a9cfea163060d602173129d24cc90cc";
+        sha256 = "sha256-tZvqfa0hCpeYinCgLfVpzhX9PiIr4HlKRAwuRILJz+g=";
       };
 
       # fuzzball uses insecure non-static format strings
