@@ -24,10 +24,10 @@ let
         sha256 = "sha256-tZvqfa0hCpeYinCgLfVpzhX9PiIr4HlKRAwuRILJz+g=";
       };
 
-      buildInputs = [ pkgs.pcre.dev ];
+      buildInputs = [ pkgs.openssl.dev pkgs.pcre.dev ];
 
       configurePhase = ''
-        ./configure --with-pcre=${pkgs.pcre.dev} --prefix=$out
+        ./configure --with-pcre=${pkgs.pcre.dev} --with-ssl=${pkgs.openssl.dev} --prefix=$out
       '';
     };
 in
