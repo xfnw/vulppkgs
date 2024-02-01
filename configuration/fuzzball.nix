@@ -15,13 +15,13 @@ let
   fuzzball =
     stdenv.mkDerivation rec {
       pname = "fuzzball";
-      version = "unstable-2024-01-28";
+      version = "unstable-2024-01-29";
 
       src = fetchFromGitHub {
         owner = "fuzzball-muck";
         repo = "fuzzball";
-        rev = "4edc578c2a9cfea163060d602173129d24cc90cc";
-        sha256 = "sha256-tZvqfa0hCpeYinCgLfVpzhX9PiIr4HlKRAwuRILJz+g=";
+        rev = "169b68cdf9fa1675e2986aab6cd018fab9f9a7f7";
+        sha256 = "sha256-J6hIS8BaBYsn1BWOx4LaJ1E1VepGYilEGjAjaWzfY+Q=";
       };
 
       buildInputs = [ pkgs.openssl.dev pkgs.pcre.dev ];
