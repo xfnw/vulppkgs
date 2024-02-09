@@ -50,6 +50,9 @@ in
       User = "fuzzball";
       Type = "forking";
       PIDFile = "${gamedir}/fbmuck.pid";
+      ProtectHome = "yes";
+      ProtectSystem = "strict";
+      ReadWritePaths = gamedir;
 
       ExecStart = "${fuzzball}/bin/fbmuck -gamedir ${gamedir} -dbin ${dbin} -dbout ${dbout} ${ports}";
     };
