@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  services.gitea = {
+  services.forgejo = {
     settings.repository.DEFAULT_BRANCH = "main";
     settings.repository.ENABLE_PUSH_CREATE_USER = "true";
     settings.repository.ENABLE_PUSH_CREATE_ORG = "true";
