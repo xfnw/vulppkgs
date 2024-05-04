@@ -9,13 +9,13 @@ let
   gcfg = config.services.getty;
   fbflut = stdenv.mkDerivation rec {
     pname = "fbflut";
-    version = "unstable-2024-01-13";
+    version = "unstable-2024-05-04";
 
     src = fetchFromGitHub {
       owner = "xfnw";
       repo = "fbflut";
-      rev = "571b7db5dc52adbde613238f4f389d047f118993";
-      sha256 = "sha256-gbi2UVCnuXCWZ8biPtpE4/FQpSH5moqjoaQuiFwNKXk=";
+      rev = "d2577db115aee10f1d29e0ecd02cd8eaa1407a87";
+      sha256 = "sha256-SvXDDyz0OV3HjTh8EoXAHcoReXed6wz0yF5qD+u0UNU=";
     };
 
     postConfigure = ''
