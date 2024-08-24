@@ -27,4 +27,6 @@ stdenv.mkDerivation rec {
   installPhase = ''
     install -D ce $out/bin/ce
   '';
+
+  meta.mainProgram = "ce";
 }
