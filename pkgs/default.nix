@@ -6,6 +6,8 @@
 
   expdays = pkgs.callPackage ./expdays { };
 
+  fbflut = pkgs.callPackage ./fbflut { };
+
   scirc = pkgs.callPackage ./scirc { };
 
 }
