@@ -9,24 +9,7 @@ let
   dbold = "${cfg.stateDir}/data/std-db.old";
   dbin = "${cfg.stateDir}/data/std-db.db";
   dbout = "${cfg.stateDir}/data/std-db.new";
-
-  fuzzball = pkgs.stdenv.mkDerivation rec {
-    pname = "fuzzball";
-    version = "7.2.1";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "fuzzball-muck";
-      repo = "fuzzball";
-      rev = "6c985b6679843122a78b9ef76609171de3614e97";
-      sha256 = "sha256-aHOJxEp1wfM+ZZ/lBUVv5C1Vxie3wryerUCSkNG2pgU=";
-    };
-
-    buildInputs = [ pkgs.openssl.dev pkgs.pcre.dev ];
-
-    configurePhase = ''
-      ./configure --with-pcre=${pkgs.pcre.dev} --with-ssl=${pkgs.openssl.dev} --prefix=$out
-    '';
-  };
+  vpkgs = import ../. { inherit pkgs; };
 
   inherit (lib)
     mkOption
@@ -36,6 +19,7 @@ in
 {
   options.vulp.services.fuzzball = {
     enable = lib.mkEnableOption "Enable the fuzzball muck server";
+    package = lib.mkPackageOption vpkgs "fuzzball" { };
 
     ports = mkOption {
       type = types.str;
@@ -75,7 +59,7 @@ in
         ReadWritePaths = cfg.stateDir;
 
         ExecStart = with cfg;
-          "${fuzzball}/bin/fbmuck -gamedir ${stateDir} -dbin ${dbin} -dbout ${dbout} ${ports}";
+          "${package}/bin/fbmuck -gamedir ${stateDir} -dbin ${dbin} -dbout ${dbout} ${ports}";
       };
     };
   };

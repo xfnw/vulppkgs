@@ -8,6 +8,8 @@
 
   fbflut = pkgs.callPackage ./fbflut { };
 
+  fuzzball = pkgs.callPackage ./fuzzball { };
+
   scirc = pkgs.callPackage ./scirc { };
 
 }
