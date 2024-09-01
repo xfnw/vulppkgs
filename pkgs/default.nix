@@ -15,6 +15,8 @@ in
 
   fuzzball = callPackage ./fuzzball { };
 
+  pbcli = callPackage ./pbcli { };
+
   scirc = callPackage ./scirc { };
 
 }
