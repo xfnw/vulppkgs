@@ -13,12 +13,3 @@ very few, if any, eyes on this. do not use stuff in here
 without double checking that i have not done something
 majorly stupid. you've been warned.
 
-** formatting
-
-modules are formatted with
-[[nixpkgs-fmt][https://github.com/nix-community/nixpkgs-fmt]].
-
-** stuff to do
-
-*** TODO make the fbflut configuration into a configurable module
-
