@@ -1,15 +1,20 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs)
+    callPackage
+    ;
+in
 {
 
-  commoned = pkgs.callPackage ./commoned { };
+  commoned = callPackage ./commoned { };
 
-  expdays = pkgs.callPackage ./expdays { };
+  expdays = callPackage ./expdays { };
 
-  fbflut = pkgs.callPackage ./fbflut { };
+  fbflut = callPackage ./fbflut { };
 
-  fuzzball = pkgs.callPackage ./fuzzball { };
+  fuzzball = callPackage ./fuzzball { };
 
-  scirc = pkgs.callPackage ./scirc { };
+  scirc = callPackage ./scirc { };
 
 }
