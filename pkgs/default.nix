@@ -15,6 +15,8 @@ in
 
   fuzzball = callPackage ./fuzzball { };
 
+  git-remote-hjgit = callPackage ./git-remote-hjgit { };
+
   pbcli = callPackage ./pbcli { };
 
   scirc = callPackage ./scirc { };
