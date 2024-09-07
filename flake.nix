@@ -5,9 +5,12 @@
   };
 
   outputs = { self, flake-utils, nixpkgs }:
-    flake-utils.lib.eachDefaultSystem (system:
+    {
+      nixosModule = (import ./modules);
+    }
+    // flake-utils.lib.eachDefaultSystem (system:
       let pkgs = (import nixpkgs) { inherit system; };
-      in { packages = (import ./.) { inherit pkgs; }; }) // {
-        nixosModule = (import ./modules);
-      };
+      in {
+        legacyPackages = (import ./.) { inherit pkgs; };
+      });
 }
