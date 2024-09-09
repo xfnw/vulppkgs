@@ -1,13 +1,13 @@
 { config
 , lib
 , pkgs
+, vpkgs
 , ...
 }:
 
 let
   cfg = config.vulp.services.fbflut;
   gcfg = config.services.getty;
-  vpkgs = import ../. { inherit pkgs; };
 in
 {
   options.vulp.services.fbflut = {

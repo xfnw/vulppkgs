@@ -1,6 +1,7 @@
 { config
 , lib
 , pkgs
+, vpkgs
 , ...
 }:
 
@@ -9,7 +10,6 @@ let
   dbold = "${cfg.stateDir}/data/std-db.old";
   dbin = "${cfg.stateDir}/data/std-db.db";
   dbout = "${cfg.stateDir}/data/std-db.new";
-  vpkgs = import ../. { inherit pkgs; };
 
   inherit (lib)
     mkOption
