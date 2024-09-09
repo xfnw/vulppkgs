@@ -1,8 +1,8 @@
-{ pkgs ? import <nixpkgs> { }, ... }@args:
+{ pkgs ? import <nixpkgs> { }, ... }:
 
-import ./pkgs args
+import ./pkgs { pkgs = pkgs; }
 // {
-  pkgsMusl = import ./pkgs (args // { pkgs = pkgs.pkgsMusl; });
+  pkgsMusl = import ./pkgs { pkgs = pkgs.pkgsMusl; };
 
-  pkgsStatic = import ./pkgs (args // { pkgs = pkgs.pkgsStatic; });
+  pkgsStatic = import ./pkgs { pkgs = pkgs.pkgsStatic; };
 }
