@@ -1,8 +1,8 @@
-{ stdenv
+{ stdenvNoCC
 , tlsclient
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   inherit (tlsclient) src version;
 
   pname = "git-remote-hjgit";
