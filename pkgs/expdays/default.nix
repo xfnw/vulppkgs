@@ -1,9 +1,9 @@
-{ stdenv
+{ stdenvNoCC
 , fetchFromGitHub
 , openssl
 }:
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   name = "expdays";
 
   src = fetchFromGitHub {
