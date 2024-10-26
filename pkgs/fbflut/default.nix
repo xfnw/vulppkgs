@@ -4,13 +4,13 @@
 
 stdenv.mkDerivation rec {
   pname = "fbflut";
-  version = "0-unstable-2024-06-02";
+  version = "0-unstable-2024-10-26";
 
   src = fetchFromGitHub {
     owner = "xfnw";
-    repo = "fbflut";
-    rev = "5ee837c88fba533892c0a3501071bb142f95ea74";
-    hash = "sha256-9FK7fmT1O7zbMTMTuAppB0QBSG8Q2DtV3EVCmVlvcQc=";
+    repo = pname;
+    rev = "57e033689df197f06fdaf275aec9cf938cb036d5";
+    hash = "sha256-pKJvLEU5gvxXS8cCKPXEPiolWkWstkwCWNPLc87epeo=";
   };
 
   postConfigure = ''
