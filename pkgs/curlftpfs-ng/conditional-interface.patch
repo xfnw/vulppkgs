@@ -1,0 +1,32 @@
+From f4d83af805c77ff86b834feb01986b66f7ba1775 Mon Sep 17 00:00:00 2001
+From: xfnw <xfnw@riseup.net>
+Date: Sat, 26 Oct 2024 19:40:12 -0400
+Subject: [PATCH] only set CURLOPT_INTERFACE when ftpfs.interface exists
+
+curl from nixpkgs seems to not like CURLOPT_INTERFACE being set to
+NULL, despite curl's docs specifically saying it is okay to do...
+
+weirdly curl as packaged in other distros is fine with it though?
+---
+ ftpfs.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/ftpfs.c b/ftpfs.c
+index 207d5fd..89b13a9 100644
+--- a/ftpfs.c
++++ b/ftpfs.c
+@@ -1630,7 +1630,10 @@ static void set_common_curl_stuff(CURL* easy) {
+     curl_easy_setopt_or_die(easy, CURLOPT_SSL_VERIFYHOST, 0);
+   }
+ 
+-  curl_easy_setopt_or_die(easy, CURLOPT_INTERFACE, ftpfs.interface);
++  if (ftpfs.interface) {
++    curl_easy_setopt_or_die(easy, CURLOPT_INTERFACE, ftpfs.interface);
++  }
++
+   curl_easy_setopt_or_die(easy, CURLOPT_KRB4LEVEL, ftpfs.krb4);
+   
+   if (ftpfs.proxy) {
+-- 
+2.47.0
+

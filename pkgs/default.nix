@@ -9,6 +9,8 @@ in
 
   commoned = callPackage ./commoned { };
 
+  curlftpfs-ng = callPackage ./curlftpfs-ng { };
+
   expdays = callPackage ./expdays { };
 
   fbflut = callPackage ./fbflut { };
