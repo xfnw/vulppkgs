@@ -22,4 +22,6 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ autoreconfHook pkg-config ];
   buildInputs = [ curl fuse glib ];
+
+  meta.mainProgram = "curlftpfs";
 }
