@@ -17,4 +17,9 @@ stdenvNoCC.mkDerivation rec {
   installPhase = ''
     install -D ${pname} $out/bin/${pname}
   '';
+
+  meta = {
+    # upstream nixpkgs tlsclient package cannot find ar when static
+    broken = stdenvNoCC.hostPlatform.isStatic;
+  };
 }

@@ -23,5 +23,11 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ autoreconfHook pkg-config ];
   buildInputs = [ curl fuse glib ];
 
-  meta.mainProgram = "curlftpfs";
+  meta = {
+    mainProgram = "curlftpfs";
+
+    # has autoconf errors for static builds
+    # missing __off_t on musl, also does not show any files
+    broken = stdenv.hostPlatform.isStatic || stdenv.hostPlatform.isMusl;
+  };
 }

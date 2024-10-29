@@ -28,5 +28,10 @@ stdenv.mkDerivation rec {
     install -D ce $out/bin/ce
   '';
 
-  meta.mainProgram = "ce";
+  meta = {
+    mainProgram = "ce";
+
+    # ecl hard-codes gcc's name, which is different for static builds
+    broken = stdenv.hostPlatform.isStatic;
+  };
 }
