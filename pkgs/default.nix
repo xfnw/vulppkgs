@@ -21,8 +21,6 @@ in
 
   pbcli = callPackage ./pbcli { };
 
-  scirc = callPackage ./scirc { };
-
   ubo-lite-extension = callPackage ./ubo-lite-extension { };
 
 }
