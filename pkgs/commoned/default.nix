@@ -5,13 +5,13 @@
 
 stdenv.mkDerivation rec {
   pname = "commoned";
-  version = "0-unstable-2024-10-27";
+  version = "0.1.0";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = pname;
-    rev = "6197563a3597e3a54368a580b2c46cd31d1ce6c2";
-    hash = "sha256-w4LYhZrCFgGzo+8uG8Mbb4exHr4GexjU+LkqTySFi6s=";
+    rev = "v${version}";
+    hash = "sha256-FYsQsnsyYTsOjvYGZOub+DTGzyIpx6nbDOASlidpyiA=";
     fetchSubmodules = true;
   };
 
