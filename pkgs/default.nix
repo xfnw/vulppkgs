@@ -21,6 +21,8 @@ in
 
   pbcli = callPackage ./pbcli { };
 
+  red-view = callPackage ./red-view { };
+
   ubo-lite-extension = callPackage ./ubo-lite-extension { };
 
 }
