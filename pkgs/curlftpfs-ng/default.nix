@@ -5,6 +5,7 @@
 , curl
 , fuse
 , glib
+, lib
 }:
 
 stdenv.mkDerivation rec {
@@ -28,6 +29,9 @@ stdenv.mkDerivation rec {
 
     # has autoconf errors for static builds
     # missing __off_t on musl, also does not show any files
-    broken = stdenv.hostPlatform.isStatic || stdenv.hostPlatform.isMusl;
+    badPlatforms = with lib.systems.inspect; lib.flatten [
+      platformPatterns.isStatic
+      patterns.isMusl
+    ];
   };
 }

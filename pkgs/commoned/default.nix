@@ -1,6 +1,7 @@
 { stdenv
 , fetchFromGitHub
 , ecl
+, lib
 }:
 
 stdenv.mkDerivation rec {
@@ -32,6 +33,6 @@ stdenv.mkDerivation rec {
     mainProgram = "ce";
 
     # ecl hard-codes gcc's name, which is different for static builds
-    broken = stdenv.hostPlatform.isStatic;
+    badPlatforms = [ lib.systems.inspect.platformPatterns.isStatic ];
   };
 }

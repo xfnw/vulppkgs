@@ -1,5 +1,6 @@
 { stdenvNoCC
 , tlsclient
+, lib
 }:
 
 stdenvNoCC.mkDerivation rec {
@@ -20,6 +21,6 @@ stdenvNoCC.mkDerivation rec {
 
   meta = {
     # upstream nixpkgs tlsclient package cannot find ar when static
-    broken = stdenvNoCC.hostPlatform.isStatic;
+    badPlatforms = [ lib.systems.inspect.platformPatterns.isStatic ];
   };
 }
