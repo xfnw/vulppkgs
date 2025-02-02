@@ -11,7 +11,7 @@ in
 
   curlftpfs-ng = callPackage ./curlftpfs-ng { };
 
-  expdays = callPackage ./expdays { };
+  dotbin = callPackage ./dotbin { };
 
   fbflut = callPackage ./fbflut { };
 
