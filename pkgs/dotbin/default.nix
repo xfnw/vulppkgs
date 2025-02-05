@@ -7,13 +7,13 @@
 
 stdenvNoCC.mkDerivation {
   pname = "dotbin";
-  version = "0-unstable-2025-02-02";
+  version = "0-unstable-2025-02-04";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = "dotfiles";
-    rev = "c7829b82f645384b570995f2269759aba5a8b638";
-    hash = "sha256-fpcozv6DoIj/PuQO9NCCi2MzdGCbFpXmPanBuaNAKGo=";
+    rev = "fb265dd7006612254517d5ad812489396d8553d0";
+    hash = "sha256-sVGUhBfS7oLzIk2bvzjLfrNqh2QBFVzR9CMXEgq1P5Y=";
   };
 
   buildInputs = [ python3 perl ];
