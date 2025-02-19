@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "pbcli";
-  version = "2.5.1";
+  version = "2.8.0";
 
   src = fetchFromGitHub {
     owner = "Mydayyy";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-41Sgey8xDyZk23WG+Yj+uvI5qVCvY/SbbyBTJGYdmaA=";
+    hash = "sha256-JusJ1ovhETW5caTW2suNvKpw5Rl+CeecmCPCFRIi7N0=";
   };
 
-  cargoHash = "sha256-5URF33zY84d8FautDosKzg3BdoMbWqEGIHNgy1ZQ/y0=";
+  cargoHash = "sha256-Q0yTOGs80du8ymylp6A5zkH47+PvZq+v1Ufr9iQu1P8=";
 
   nativeBuildInputs = [ pkg-config ];
 
