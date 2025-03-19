@@ -2,6 +2,7 @@
 , stdenv_32bit
 , fetchFromGitHub
 , pkgsi686Linux
+, lib
 }:
 
 let
@@ -25,15 +26,15 @@ let
     '';
   };
   r2 = "${rebol}/bin/rebol";
-in stdenvNoCC.mkDerivation {
+in stdenvNoCC.mkDerivation rec {
   pname = "red-view";
-  version = "0.6.5-unstable-2024-12-04";
+  version = "0.6.6";
 
   src = fetchFromGitHub {
     owner = "red";
     repo = "red";
-    rev = "855cad124bf19949105cbea390667af208bbf41b";
-    hash = "sha256-1ZZep+NWkyieMvGSaSvE4XQWIW02zXVcs9ZRnK+Arh4=";
+    rev = "v${version}";
+    hash = "sha256-x47N5rcSf0cjTt6aqDOR9lJ5JlS6TkPl+y5DFzZucL4=";
   };
 
   buildPhase = ''
@@ -66,5 +67,9 @@ in stdenvNoCC.mkDerivation {
   meta = {
     mainProgram = "gui-console";
     platforms = [ "i686-linux" "x86_64-linux" ];
+    badPlatforms = with lib.systems.inspect; lib.flatten [
+      platformPatterns.isStatic
+      patterns.isMusl
+    ];
   };
 }
