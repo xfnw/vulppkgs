@@ -4,6 +4,7 @@
 set -eux
 
 package="$1"
+name="$(sed -n 's/^ *name = "\([^"]*\)";$/\1/p' "$package")"
 extid="$(sed -n 's/^ *extid = "\([^"]*\)";$/\1/p' "$package")"
 oldver="$(sed -n 's/^ *external_version = "\([^"]*\)";$/\1/p' "$package")"
 chrmajor="$(nix-instantiate --eval --xml -E "with import <nixpkgs>{}; lib.versions.major ungoogled-chromium.version" | xml sel -t -v /expr/string/@value)"
@@ -24,3 +25,5 @@ sed -i '
 	s#^\( *hash = "\)[^"]*";$#\1'"$sri"'";#;
 	s#^\( *external_version = "\)[^"]*";$#\1'"$version"'";#
 	' "$package"
+
+printf '%s: %s -> %s\n' "$name" "$oldver" "$version"
