@@ -7,6 +7,8 @@
   outputs = { self, flake-utils, nixpkgs }:
     {
       nixosModules.default = import ./modules;
+      overlays.default = _: prev:
+        import ./. { pkgs = prev; };
     }
     // flake-utils.lib.eachDefaultSystem (system:
       let pkgs = (import nixpkgs) { inherit system; };
