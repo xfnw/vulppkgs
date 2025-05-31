@@ -11,8 +11,8 @@
         import ./. { pkgs = prev; };
     }
     // flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = (import nixpkgs) { inherit system; };
+      let pkgs = import nixpkgs { inherit system; };
       in {
-        legacyPackages = (import ./.) { inherit pkgs; };
+        legacyPackages = import ./. { inherit pkgs; };
       });
 }
