@@ -54,6 +54,7 @@ in
         User = "fuzzball";
         Type = "forking";
         PIDFile = "${cfg.stateDir}/fbmuck.pid";
+        NoNewPrivileges = "yes";
         ProtectHome = "yes";
         ProtectSystem = "strict";
         ReadWritePaths = cfg.stateDir;
