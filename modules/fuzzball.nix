@@ -54,6 +54,9 @@ in
         User = "fuzzball";
         Type = "forking";
         PIDFile = "${cfg.stateDir}/fbmuck.pid";
+        ExecStart = with cfg;
+          "${package}/bin/fbmuck -gamedir ${stateDir} -dbin ${dbin} -dbout ${dbout} ${ports}";
+
         CapabilityBoundingSet = "";
         LockPersonality = true;
         MemoryDenyWriteExecute = true;
@@ -70,8 +73,12 @@ in
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
 
-        ExecStart = with cfg;
-          "${package}/bin/fbmuck -gamedir ${stateDir} -dbin ${dbin} -dbout ${dbout} ${ports}";
+        SystemCallArchitectures = "native";
+        SystemCallFilter = [
+          "~@clock @cpu-emulation @debug @module"
+          "~@mount @obsolete @privileged @raw-io"
+          "~@reboot @resources @swap"
+        ];
       };
     };
   };
