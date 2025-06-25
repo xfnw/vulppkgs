@@ -54,10 +54,21 @@ in
         User = "fuzzball";
         Type = "forking";
         PIDFile = "${cfg.stateDir}/fbmuck.pid";
-        NoNewPrivileges = "yes";
-        ProtectHome = "yes";
+        CapabilityBoundingSet = "";
+        LockPersonality = true;
+        MemoryDenyWriteExecute = true;
+        NoNewPrivileges = true;
+        ProtectClock = true;
+        ProtectControlGroups = true;
+        ProtectHome = true;
+        ProtectKernelLogs = true;
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
         ProtectSystem = "strict";
         ReadWritePaths = cfg.stateDir;
+        RestrictNamespaces = true;
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
 
         ExecStart = with cfg;
           "${package}/bin/fbmuck -gamedir ${stateDir} -dbin ${dbin} -dbout ${dbout} ${ports}";
