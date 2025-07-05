@@ -24,6 +24,13 @@ stdenv.mkDerivation rec {
       hash = "sha256-rPVjcG1W5C6v2WBBCXwcAGFeExKqAU8Cb2zSx1njmjk=";
     })
 
+    # https://github.com/fuzzball-muck/fuzzball/pull/746
+    (fetchpatch {
+      name = "tanabi-newobject-logic.patch";
+      url = "https://github.com/fuzzball-muck/fuzzball/commit/6ee90bad1a8fb3666ed2215f3c6245a8bbc3f5ba.patch";
+      hash = "sha256-yf1KaFG1SgMip7FMplvgD/wZGtktt5sJFQXTHXjeW/8=";
+    })
+
     # https://github.com/fuzzball-muck/fuzzball/pull/753
     (fetchpatch {
       name = "pointsdragon-fix-crash.patch";
