@@ -1,5 +1,6 @@
 { stdenv
 , fetchFromGitHub
+, fetchpatch
 , openssl
 , pcre
 }:
@@ -14,6 +15,15 @@ stdenv.mkDerivation rec {
     rev = "v${version}";
     hash = "sha256-aHOJxEp1wfM+ZZ/lBUVv5C1Vxie3wryerUCSkNG2pgU=";
   };
+
+  patches = [
+    # https://github.com/fuzzball-muck/fuzzball/pull/753
+    (fetchpatch {
+      name = "pointsdragon-fix-crash.patch";
+      url = "https://github.com/fuzzball-muck/fuzzball/commit/aee082b37d628f4375b4843becdfb9d9ce40f511.patch";
+      hash = "sha256-YOnYPRAmnAXnLIWw9Z17L2FE0fEr0+HzNnwWSaIkR4o=";
+    })
+  ];
 
   buildInputs = [ openssl.dev pcre.dev ];
 
