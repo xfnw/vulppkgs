@@ -2,6 +2,7 @@
 , fetchFromGitHub
 , autoreconfHook
 , pkg-config
+, gettext
 , curl
 , fuse
 , glib
@@ -19,9 +20,9 @@ stdenv.mkDerivation rec {
     hash = "sha256-M48ovjWqmwVKwcudTSECWZPLIg6yj4ZuNDKcrtkSjtM=";
   };
 
-  patches = [ ./conditional-interface.patch ];
+  patches = [ ./conditional-interface.patch ./gettext-0.25.patch ];
 
-  nativeBuildInputs = [ autoreconfHook pkg-config ];
+  nativeBuildInputs = [ autoreconfHook pkg-config gettext ];
   buildInputs = [ curl fuse glib ];
 
   meta = {

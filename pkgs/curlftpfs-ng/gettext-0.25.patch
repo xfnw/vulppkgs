@@ -1,0 +1,26 @@
+From 2811e3cc0c34cda9c430af79af00e8f3786203c0 Mon Sep 17 00:00:00 2001
+From: xfnw <xfnw@riseup.net>
+Date: Sat, 5 Jul 2025 08:08:54 -0400
+Subject: [PATCH] fix building with gettext 0.25
+
+Co-authored-by: Alyssa Ross <hi@alyssa.is>
+---
+ configure.ac | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/configure.ac b/configure.ac
+index 9a08133..4c9a5ab 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1,5 +1,8 @@
+ AC_INIT(curlftpfs, 0.9.3-next)
++AC_CONFIG_MACRO_DIRS([m4])
+ AM_INIT_AUTOMAKE
++AM_GNU_GETTEXT_VERSION([0.20])
++AM_GNU_GETTEXT([external])
+ AM_CONFIG_HEADER(config.h)
+ 
+ AC_PROG_CC
+-- 
+2.49.0
+
