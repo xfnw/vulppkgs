@@ -12,7 +12,7 @@ in
     enable = lib.mkEnableOption "Enable extensions for ungoogled chromium";
     extensions = lib.mkOption {
       type = lib.types.listOf lib.types.package;
-      default = with vpkgs; [ ubo-lite-extension ];
+      default = with vpkgs.ungoogled-extensions; [ ubo-lite ];
       description = "Set of extensions to install";
     };
   };

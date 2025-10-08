@@ -18,6 +18,6 @@ lib.makeScope newScope (self: {
 
   red-view = self.callPackage ./red-view { };
 
-  ubo-lite-extension = self.callPackage ./ubo-lite-extension { };
+  ungoogled-extensions = self.callPackage ./ungoogled-extensions { };
 
 })

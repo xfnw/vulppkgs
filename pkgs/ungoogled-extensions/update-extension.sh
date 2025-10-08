@@ -26,4 +26,4 @@ sed -i '
 	s#^\( *external_version = "\)[^"]*";$#\1'"$version"'";#
 	' "$package"
 
-printf '%s: %s -> %s\n' "$name" "$oldver" "$version"
+printf 'ungoogled-extensions.%s: %s -> %s\n' "$name" "$oldver" "$version"

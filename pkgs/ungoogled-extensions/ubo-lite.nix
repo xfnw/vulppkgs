@@ -12,7 +12,7 @@ let
   };
 in
 writeTextFile {
-  name = "ubo-lite-extension";
+  name = "ubo-lite";
   text = builtins.toJSON {
     external_crx = crx;
     external_version = "2025.928.1920";
