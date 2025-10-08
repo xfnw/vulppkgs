@@ -2,10 +2,15 @@
 
 let
   inherit (pkgs) lib;
-  bs = p: lib.filter
-    (v: lib.isDerivation v
-      && v.meta.available
-      && lib.meta.availableOn { system = p.system; } v)
-    (lib.attrValues (import ./pkgs { pkgs = p; }));
+  walkies = set: lib.flatten (lib.mapAttrsToList (_: v:
+    let
+      res = builtins.tryEval (if lib.isDerivation v then
+        lib.seq v.outPath [ v ]
+      else if lib.isAttrs v then
+        walkies v
+      else
+        [ ]);
+    in
+      if res.success then res.value else [ ]) set);
 in
-  bs pkgs ++ bs pkgs.pkgsMusl ++ bs pkgs.pkgsStatic
+  walkies (import ./. { inherit pkgs; })
