@@ -1,28 +1,23 @@
-{ pkgs, ... }:
+{ lib, newScope }:
 
-let
-  inherit (pkgs)
-    callPackage
-    ;
-in
-{
+lib.makeScope newScope (self: {
 
-  commoned = callPackage ./commoned { };
+  commoned = self.callPackage ./commoned { };
 
-  curlftpfs-ng = callPackage ./curlftpfs-ng { };
+  curlftpfs-ng = self.callPackage ./curlftpfs-ng { };
 
-  dotbin = callPackage ./dotbin { };
+  dotbin = self.callPackage ./dotbin { };
 
-  fbflut = callPackage ./fbflut { };
+  fbflut = self.callPackage ./fbflut { };
 
-  fuzzball = callPackage ./fuzzball { };
+  fuzzball = self.callPackage ./fuzzball { };
 
-  git-remote-hjgit = callPackage ./git-remote-hjgit { };
+  git-remote-hjgit = self.callPackage ./git-remote-hjgit { };
 
-  pbcli = callPackage ./pbcli { };
+  pbcli = self.callPackage ./pbcli { };
 
-  red-view = callPackage ./red-view { };
+  red-view = self.callPackage ./red-view { };
 
-  ubo-lite-extension = callPackage ./ubo-lite-extension { };
+  ubo-lite-extension = self.callPackage ./ubo-lite-extension { };
 
-}
+})
