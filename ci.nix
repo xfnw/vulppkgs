@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { }, ... }:
+{ pkgs ? import <nixpkgs> args, ... }@args:
 
 let
   inherit (pkgs) lib;
