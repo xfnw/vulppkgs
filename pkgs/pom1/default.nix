@@ -1,4 +1,5 @@
 { stdenv
+, lib
 , fetchurl
 , autoreconfHook
 , SDL_compat
@@ -27,4 +28,10 @@ stdenv.mkDerivation (finalAttrs: {
   nativeBuildInputs = [ autoreconfHook SDL_compat ];
   buildInputs = [ SDL_compat ];
   strictDeps = true;
+
+  meta = {
+    badPlatforms = with lib.systems.inspect; lib.flatten [
+      patterns.isMusl
+    ];
+  };
 })
