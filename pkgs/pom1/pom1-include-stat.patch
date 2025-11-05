@@ -1,0 +1,11 @@
+diff -ru a/src/configuration.c b/src/configuration.c
+--- a/src/configuration.c	2025-02-06 12:30:02.459993250 -0500
++++ b/src/configuration.c	2025-02-06 12:30:48.247144796 -0500
+@@ -19,6 +19,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <sys/stat.h>
+ #include "screen.h"
+ #include "memory.h"
+ 

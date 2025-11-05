@@ -1,0 +1,34 @@
+# fix undefined overlapping memcpy and excessive cpu usage
+#
+# memcpy on overlapping sections of memory is undefined
+# behavior, and segfaults on some platforms. memmove should
+# be used instead
+#
+# the drawBlinkingCursor routine is only called while
+# idling, so we can safely put a bit of delay there without
+# affecting actual use, to dramatically reduce cpu usage
+#
+# patch by xfnw
+diff -ru a/src/screen.c b/src/screen.c
+--- a/src/screen.c	2013-01-19 15:11:24.000000000 -0500
++++ b/src/screen.c	2023-07-19 13:37:01.360533517 -0400
+@@ -93,7 +93,7 @@
+ 
+ static void newLine(void)
+ {
+-	memcpy(&screenTbl, &screenTbl[40], 920);
++	memmove(&screenTbl, &screenTbl[40], 920);
+ 	memset(&screenTbl[920], 0, 40);
+ }
+ 
+@@ -225,6 +225,10 @@
+ 			
+ 		clearCursor = !clearCursor;
+ 	}
++
++	// sleep a bit while nothing is happening
++	// avoids constant 100% cpu usage
++	SDL_Delay(100);
+ }
+ 
+ void redrawScreen(void)

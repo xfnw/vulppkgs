@@ -1,0 +1,17 @@
+# free mouse after exiting fullscreen
+#
+# previously, the mouse would become trapped inside the
+# window after exiting fullscreen
+#
+# patch by xfnw
+diff -ru a/src/keyboard.c b/src/keyboard.c
+--- a/src/keyboard.c	2013-01-19 15:07:10.000000000 -0500
++++ b/src/keyboard.c	2023-07-21 13:35:39.779509898 -0400
+@@ -170,6 +170,7 @@
+ 				SDL_SetVideoMode(280 * getPixelSize(), 192 * getPixelSize(), 8, SDL_HWSURFACE | (getFullscreen() ? SDL_FULLSCREEN : 0));
+ 				initScreen();
+ 				SDL_ShowCursor(!getFullscreen());
++				SDL_WM_GrabInput(getFullscreen());
+ 				redrawScreen();
+ 				return 1;
+ 			}

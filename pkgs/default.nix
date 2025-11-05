@@ -16,6 +16,8 @@ lib.makeScope newScope (self: {
 
   pbcli = self.callPackage ./pbcli { };
 
+  pom1 = self.callPackage ./pom1 { };
+
   red-view = self.callPackage ./red-view { };
 
   ungoogled-extensions = self.callPackage ./ungoogled-extensions { };

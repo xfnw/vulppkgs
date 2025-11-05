@@ -1,0 +1,47 @@
+# fix backspace key
+#
+# converts backspace control sequence to the apple 1's _
+# and adds handling to terminal
+#
+# https://sourceforge.net/p/pom1/bugs/2/
+# patch by Miguel Angel Moro Calero
+diff -ru a/src/keyboard.c b/src/keyboard.c
+--- a/src/keyboard.c	2013-01-19 15:07:10.000000000 -0500
++++ b/src/keyboard.c	2014-09-24 04:12:00.000000000 -0400
+@@ -200,7 +200,11 @@
+ 
+ 			if (tmp >= 0x61 && tmp <= 0x7A)
+ 				tmp &= 0x5F;
+-
++			
++			// Backspace
++			if (tmp == 0x08)
++				tmp = 0x5F;
++			
+ 			if (tmp < 0x60)
+ 			{
+ 				writeKbd((unsigned char)(tmp | 0x80));
+diff -ru a/src/screen.c b/src/screen.c
+--- a/src/screen.c	2013-01-19 15:11:24.000000000 -0500
++++ b/src/screen.c	2014-09-24 04:12:00.000000000 -0400
+@@ -114,8 +114,19 @@
+ 		indexX = 0;
+ 		indexY++;
+ 		break;
++	case 0x5F:
++		// Backspace
++		if (indexX > 0)
++			indexX--;
++		else
++		{
++			indexY--;
++			indexX = 39;
++		}
++		screenTbl[indexY * 40 + indexX] = 0x20;
+ 	default:
+-		if (tmp >= 0x20 && tmp <= 0x5F)
++		// Everything else
++		if (tmp >= 0x20 && tmp < 0x5F)
+ 		{
+ 			screenTbl[indexY * 40 + indexX] = tmp;
+ 			indexX++;
