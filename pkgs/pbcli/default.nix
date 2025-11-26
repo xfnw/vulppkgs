@@ -4,14 +4,14 @@
 , openssl
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "pbcli";
   version = "2.8.0";
 
   src = fetchFromGitHub {
     owner = "Mydayyy";
-    repo = pname;
-    rev = "v${version}";
+    repo = finalAttrs.pname;
+    rev = "v${finalAttrs.version}";
     hash = "sha256-JusJ1ovhETW5caTW2suNvKpw5Rl+CeecmCPCFRIi7N0=";
   };
 
@@ -24,4 +24,4 @@ rustPlatform.buildRustPackage rec {
   patchPhase = ''
     sed -i '/^openssl =.*vendored/d' Cargo.toml
   '';
-}
+})
