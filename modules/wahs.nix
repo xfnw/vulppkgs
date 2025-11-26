@@ -1,6 +1,7 @@
 { config
 , lib
 , utils
+, pkgs
 , vpkgs
 , ...
 }:
@@ -41,6 +42,7 @@ in
           cfg.bind
           "--"
         ] ++ cfg.directories);
+        ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
         DynamicUser = true;
         PrivateDevices = true;
         ProtectClock = true;
