@@ -22,4 +22,6 @@ lib.makeScope newScope (self: {
 
   ungoogled-extensions = self.callPackage ./ungoogled-extensions { };
 
+  wahs = self.callPackage ./wahs { };
+
 })
