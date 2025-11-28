@@ -68,6 +68,7 @@ in
         ProtectKernelModules = true;
         ProtectKernelTunables = true;
         ProtectSystem = "strict";
+        ProtectProc = "invisible";
         ReadWritePaths = cfg.stateDir;
         RestrictNamespaces = true;
         RestrictRealtime = true;
