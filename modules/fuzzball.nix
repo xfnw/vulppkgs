@@ -64,12 +64,15 @@ in
         ProtectClock = true;
         ProtectControlGroups = true;
         ProtectHome = true;
+        ProtectHostname = true;
         ProtectKernelLogs = true;
         ProtectKernelModules = true;
         ProtectKernelTunables = true;
         ProtectSystem = "strict";
         ProtectProc = "invisible";
+        PrivateDevices = true;
         ReadWritePaths = cfg.stateDir;
+        RemoveIPC = true;
         RestrictNamespaces = true;
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
