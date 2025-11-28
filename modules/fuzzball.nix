@@ -73,6 +73,10 @@ in
         RestrictNamespaces = true;
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
+        RestrictAddressFamilies = [
+          "AF_INET6"
+          "AF_INET"
+        ];
 
         SystemCallArchitectures = "native";
         SystemCallFilter = [
