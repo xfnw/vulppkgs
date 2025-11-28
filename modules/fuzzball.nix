@@ -71,6 +71,7 @@ in
         ProtectSystem = "strict";
         ProtectProc = "invisible";
         PrivateDevices = true;
+        PrivateTmp = true;
         ReadWritePaths = cfg.stateDir;
         RemoveIPC = true;
         RestrictNamespaces = true;
