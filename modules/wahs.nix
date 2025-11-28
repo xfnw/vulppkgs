@@ -66,6 +66,7 @@ in
         ];
         SystemCallFilter = [
           "@system-service"
+          "~@resources @privileged"
         ];
       };
     };
