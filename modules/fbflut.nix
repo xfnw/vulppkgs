@@ -1,7 +1,6 @@
 { config
 , lib
 , pkgs
-, vpkgs
 , ...
 }:
 
@@ -12,7 +11,7 @@ in
 {
   options.vulp.services.fbflut = {
     enable = lib.mkEnableOption "Enable the fbflut pixelflut server";
-    package = lib.mkPackageOption vpkgs "fbflut" { };
+    package = lib.mkPackageOption config.vulp.pkgs "fbflut" { };
   };
 
   config = lib.mkIf cfg.enable {

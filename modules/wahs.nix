@@ -2,7 +2,6 @@
 , lib
 , utils
 , pkgs
-, vpkgs
 , ...
 }:
 
@@ -17,7 +16,7 @@ in
 {
   options.vulp.services.wahs = {
     enable = lib.mkEnableOption "Enable the wahs server";
-    package = lib.mkPackageOption vpkgs "wahs" { };
+    package = lib.mkPackageOption config.vulp.pkgs "wahs" { };
     bind = mkOption {
       type = types.str;
       default = "[::1]:0";

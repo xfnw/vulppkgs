@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -8,5 +8,9 @@
     ./wahs.nix
   ];
 
-  _module.args.vpkgs = import ../. { inherit pkgs; };
+  options.vulp.pkgs = lib.mkOption {
+    type = lib.types.unspecified;
+    description = "The package set to look for vulppkgs packages in";
+    default = import ../. { inherit pkgs; };
+  };
 }
