@@ -1,31 +1,15 @@
-{ stdenvNoCC
-, fetchFromGitHub
-, openssl
-, python3
-, perl
-}:
+{ lib, newScope }:
 
-stdenvNoCC.mkDerivation {
-  pname = "dotbin";
-  version = "0-unstable-2025-11-02";
+lib.makeScope newScope (self: {
 
-  src = fetchFromGitHub {
-    owner = "xfnw";
-    repo = "dotfiles";
-    rev = "366d87230cfa0a4713638484acf844c183bae626";
-    hash = "sha256-3LbnGWXGpZy9Xg2Xs7KSkr/BHf7/LvGEDXk8dRvyGjg=";
-  };
+  expdays = self.callPackage ./expdays.nix { };
 
-  buildInputs = [ python3 perl ];
+  nix2tcz = self.callPackage ./nix2tcz.nix { };
 
-  patchPhase = ''
-    substituteInPlace bin/expdays --replace-fail \
-      openssl ${openssl}/bin/openssl
-  '';
+  pushimap = self.callPackage ./pushimap.nix { };
 
-  installPhase = ''
-    install -Dt $out/bin bin/*
-  '';
+  source = self.callPackage ./source.nix { };
 
-  meta.mainProgram = "expdays";
-}
+  taint = self.callPackage ./taint.nix { };
+
+})
