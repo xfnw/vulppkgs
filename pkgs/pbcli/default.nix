@@ -21,7 +21,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   buildInputs = [ openssl ];
 
-  patchPhase = ''
-    sed -i '/^openssl =.*vendored/d' Cargo.toml
-  '';
+  env = {
+    OPENSSL_NO_VENDOR = true;
+  };
 })
