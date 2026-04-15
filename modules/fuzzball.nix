@@ -37,8 +37,9 @@ in
   config = lib.mkIf cfg.enable {
     users.users.fuzzball = {
       isSystemUser = true;
-      group = "nogroup";
+      group = "fuzzball";
     };
+    users.groups.fuzzball = { };
 
     systemd.services.fuzzball = {
       enable = true;
