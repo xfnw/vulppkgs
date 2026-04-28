@@ -1,4 +1,4 @@
-{ pkgs, lib, newScope }:
+{ lib, newScope }:
 
 lib.makeScope newScope (self: {
 
@@ -12,11 +12,7 @@ lib.makeScope newScope (self: {
 
   fuzzball = self.callPackage ./fuzzball { };
 
-  git-remote-hjgit = self.callPackage ./git-remote-hjgit {
-    tlsclient = pkgs.tlsclient.overrideAttrs (old: {
-      postPatch = "sed -i s/fmul/myfmul/g libsec/curve25519.c";
-    });
-  };
+  git-remote-hjgit = self.callPackage ./git-remote-hjgit { };
 
   pbcli = self.callPackage ./pbcli { };
 
