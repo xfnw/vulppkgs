@@ -4,6 +4,7 @@
   imports = [
     ./fbflut.nix
     ./fuzzball.nix
+    ./metrics-relay.nix
     ./ungoogled-extensions.nix
     ./wahs.nix
   ];
