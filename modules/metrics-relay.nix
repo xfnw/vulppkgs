@@ -28,6 +28,31 @@ in
           "${cfg.package}/bin/metrics-relay"
         ];
         DynamicUser = true;
+        PrivateDevices = true;
+        ProtectClock = true;
+        ProtectHome = true;
+        ProtectSystem = "strict";
+        CapabilityBoundingSet = "";
+        ProtectKernelLogs = true;
+        ProtectControlGroups = true;
+        ProtectKernelModules = true;
+        SystemCallArchitectures = "native";
+        MemoryDenyWriteExecute = "true";
+        RestrictNamespaces = true;
+        ProtectHostname = true;
+        LockPersonality = true;
+        ProtectKernelTunables = true;
+        RestrictRealtime = true;
+        ProtectProc = "invisible";
+        PrivateUsers = true;
+        RestrictAddressFamilies = [
+          "AF_INET6"
+          "AF_INET"
+        ];
+        SystemCallFilter = [
+          "@system-service"
+          "~@resources @privileged"
+        ];
       };
     };
   };
