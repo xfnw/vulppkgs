@@ -12,6 +12,8 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-0jD57We9gMwaMaLdw2/VA0tZQNMeDtvRabXzH0dtX7I=";
   };
 
+  makeFlags = [ "CC=${stdenv.cc.targetPrefix}cc" ];
+
   configurePhase = lib.optionalString stdenv.targetPlatform.is64bit ''
     substituteInPlace config.h \
       --replace-fail "BMP_BIT   32" "BMP_BIT   64" \
