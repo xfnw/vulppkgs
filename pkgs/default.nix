@@ -22,6 +22,8 @@ lib.makeScope newScope (self: {
 
   red-view = self.callPackage ./red-view { };
 
+  reveng = self.callPackage ./reveng { };
+
   ungoogled-extensions = self.callPackage ./ungoogled-extensions { };
 
   wahs = self.callPackage ./wahs { };
