@@ -38,6 +38,32 @@ in
         ExecStart = "${cfg.package}/bin/fbflut";
         StandardOutput = "tty";
         TTYPath = "/dev/tty1";
+        User = "fbflut";
+        CapabilityBoundingSet = "";
+        NoNewPrivileges = true;
+        ProtectClock = true;
+        ProtectKernelLogs = true;
+        ProtectControlGroups = true;
+        ProtectKernelModules = true;
+        PrivateMounts = true;
+        SystemCallArchitectures = "native";
+        MemoryDenyWriteExecute = true;
+        RestrictNamespaces = true;
+        RestrictSUIDSGID = true;
+        ProtectHostname = true;
+        LockPersonality = true;
+        ProtectKernelTunables = true;
+        RestrictAddressFamilies = [ "AF_INET6" "AF_INET" ];
+        RestrictRealtime = true;
+        RemoveIPC = true;
+        ProtectSystem = "strict";
+        ProtectProc = "invisible";
+        ProtectHome = true;
+        PrivateTmp = true;
+        SystemCallFilter = [
+          "@system-service"
+          "~@resources @privileged"
+        ];
       };
     };
 
