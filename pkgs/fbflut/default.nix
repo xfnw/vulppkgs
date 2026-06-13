@@ -4,17 +4,17 @@
 
 stdenv.mkDerivation rec {
   pname = "fbflut";
-  version = "0-unstable-2024-11-03";
+  version = "0-unstable-2026-06-13";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = pname;
-    rev = "4c336453a121e525d8399f578de9b41fd34521b2";
-    hash = "sha256-151UxzciRwwHWRTZwddb1mjYwTqxmDkyt3cMrAhxr4c=";
+    rev = "236935abecde35bc49de7737e1633cf4aace8067";
+    hash = "sha256-MhQo5VFnUowxMcWewXC1aZhCXOgWjI9Brs+0Qrv5q9Q=";
   };
 
   postConfigure = ''
-    substituteInPlace Makefile --replace c99 $CC
+    substituteInPlace Makefile --replace-warn c99 $CC
   '';
 
   installPhase = ''
