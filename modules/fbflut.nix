@@ -29,7 +29,7 @@ in
       # FIXME: surely there is a better way to wait for /dev/fb0?
       # adding a dependency on dev-fb0.device just times out :(
       preStart = ''
-        while [ ! -e /dev/fb0 ]; do
+        while [ ! -r /dev/fb0 ] || [ ! -w /dev/fb0 ]; do
           ${pkgs.coreutils}/bin/sleep 1
         done
       '';
