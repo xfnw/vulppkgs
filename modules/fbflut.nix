@@ -6,7 +6,6 @@
 
 let
   cfg = config.vulp.services.fbflut;
-  gcfg = config.services.getty;
 in
 {
   options.vulp.services.fbflut = {
