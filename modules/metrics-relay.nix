@@ -9,7 +9,7 @@ let
 in
 {
   options.vulp.services.metrics-relay = {
-    enable = lib.mkEnableOption "Enable metrics-relay";
+    enable = lib.mkEnableOption "metrics-relay";
     package = lib.mkPackageOption config.vulp.pkgs "metrics-relay" { };
     bind = lib.mkOption {
       type = lib.types.str;

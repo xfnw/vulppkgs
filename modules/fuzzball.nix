@@ -17,7 +17,7 @@ let
 in
 {
   options.vulp.services.fuzzball = {
-    enable = lib.mkEnableOption "Enable the fuzzball muck server";
+    enable = lib.mkEnableOption "fuzzball muck server";
     package = lib.mkPackageOption config.vulp.pkgs "fuzzball" { };
 
     ports = mkOption {

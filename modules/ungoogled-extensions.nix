@@ -8,7 +8,7 @@ let
 in
 {
   options.vulp.programs.ungoogled-extensions = {
-    enable = lib.mkEnableOption "Enable extensions for ungoogled chromium";
+    enable = lib.mkEnableOption "extensions for ungoogled chromium";
     extensions = lib.mkOption {
       type = lib.types.listOf lib.types.package;
       default = with config.vulp.pkgs.ungoogled-extensions; [ ubo-lite ];

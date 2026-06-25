@@ -9,7 +9,7 @@ let
 in
 {
   options.vulp.services.fbflut = {
-    enable = lib.mkEnableOption "Enable the fbflut pixelflut server";
+    enable = lib.mkEnableOption "fbflut pixelflut server";
     package = lib.mkPackageOption config.vulp.pkgs "fbflut" { };
   };
 
