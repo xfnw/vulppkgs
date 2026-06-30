@@ -4,8 +4,6 @@ lib.makeScope newScope (self: {
 
   commoned = self.callPackage ./commoned { };
 
-  curlftpfs-ng = self.callPackage ./curlftpfs-ng { };
-
   dotbin = self.callPackage ./dotbin { };
 
   fbflut = self.callPackage ./fbflut { };
