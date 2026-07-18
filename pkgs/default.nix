@@ -22,6 +22,8 @@ lib.makeScope newScope (self: {
 
   reveng = self.callPackage ./reveng { };
 
+  terminal-to-html = self.callPackage ./terminal-to-html { };
+
   ungoogled-extensions = self.callPackage ./ungoogled-extensions { };
 
   wahs = self.callPackage ./wahs { };
