@@ -4,14 +4,14 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "wahs";
-  version = "0-unstable-2026-07-05";
+  version = "0-unstable-2026-08-13";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = "wahs";
-    rev = "25d7bf8dee47a70efd1e0b8298f3b466a8131e4c";
-    hash = "sha256-DJ+k+HYqXu44ifGn65TtW3Puc/sqMwoORqk5kZzHjVA=";
+    rev = "52b77c4d4ffec8fcf5d2fbc5095a7b02a74c6bcf";
+    hash = "sha256-tPERLNv8uOQgEJnGkh2rQl4X2m4N2q57WS977EcHYcE=";
   };
 
-  cargoHash = "sha256-ndchlJ9e8RPdNIsCxwbMX+3rncQLV89SVh2nFeACrB0=";
+  cargoHash = "sha256-0OcpTlDUP3Q3IWEGPoMU8mITstWRUYWHMH6b6FYJwrw=";
 })
