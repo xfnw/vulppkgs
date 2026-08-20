@@ -12,6 +12,8 @@ lib.makeScope newScope (self: {
 
   git-remote-hjgit = self.callPackage ./git-remote-hjgit { };
 
+  jugulans = self.callPackage ./jugulans { };
+
   metrics-relay = self.callPackage ./metrics-relay { };
 
   pbcli = self.callPackage ./pbcli { };
