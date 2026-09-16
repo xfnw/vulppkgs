@@ -7,13 +7,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "jugulans";
-  version = "1.0.4";
+  version = "1.0.5";
 
   src = fetchFromCodeberg {
     owner = "mattof";
     repo = "jugulans";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-tw8gHF8+FOP2ItDtxdCfz48gOLA2Jw7PuzGafi3fN64=";
+    hash = "sha256-BbqSkM2eO9EIaIRRK8Ou/zEKRWobVFhcEqaZsYLhfHQ=";
   };
 
   buildInputs = with chickenPackages.chickenEggs; [
