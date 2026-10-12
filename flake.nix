@@ -1,19 +1,21 @@
 {
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
   };
 
-  outputs = { self, flake-utils, nixpkgs }:
-    {
-      nixosModules.default = import ./modules;
-      overlays.default = final: prev: {
-        vulp = import ./. { pkgs = final; };
-      };
-    }
-    // flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in {
-        legacyPackages = import ./. { inherit pkgs; };
-      });
+  outputs = { self, nixpkgs }: {
+    nixosModules.default = import ./modules;
+    overlays.default = final: prev: {
+      vulp = import ./. { pkgs = final; };
+    };
+    legacyPackages = nixpkgs.lib.genAttrs [
+      "aarch64-darwin"
+      "aarch64-linux"
+      "i686-linux"
+      "riscv64-linux"
+      "x86_64-linux"
+    ] (system: import ./. {
+      pkgs = nixpkgs.legacyPackages.${system};
+    });
+  };
 }
