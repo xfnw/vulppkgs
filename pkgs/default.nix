@@ -28,6 +28,8 @@ lib.makeScope newScope (self: {
 
   ungoogled-extensions = self.callPackage ./ungoogled-extensions { };
 
+  uxncli = self.callPackage ./uxncli { };
+
   wahs = self.callPackage ./wahs { };
 
 })
