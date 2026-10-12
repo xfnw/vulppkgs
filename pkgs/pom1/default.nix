@@ -6,7 +6,7 @@
 }:
 
 stdenv.mkDerivation (finalAttrs: {
-  name = "pom1";
+  pname = "pom1";
   version = "1.0.0";
 
   src = fetchurl {
