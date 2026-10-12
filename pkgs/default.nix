@@ -6,6 +6,8 @@ lib.makeScope newScope (self: {
 
   dotbin = self.callPackage ./dotbin { };
 
+  drifblim = self.callPackage ./drifblim { };
+
   fbflut = self.callPackage ./fbflut { };
 
   fuzzball = self.callPackage ./fuzzball { };
