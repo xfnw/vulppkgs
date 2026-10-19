@@ -20,6 +20,10 @@ lib.makeScope newScope (self: {
 
   pbcli = self.callPackage ./pbcli { };
 
+  pkgsCross = lib.mapAttrs
+    (_: set: lib.makeScope set.newScope self.packages)
+    pkgs.pkgsCross;
+
   pkgsMusl = lib.makeScope pkgs.pkgsMusl.newScope self.packages;
 
   pkgsStatic = lib.makeScope pkgs.pkgsStatic.newScope self.packages;
