@@ -6,7 +6,7 @@ let
     let
       res = builtins.tryEval (if lib.isDerivation v then
         lib.seq v.outPath [ v ]
-      else if lib.isAttrs v then
+      else if v.recurseForDerivations or false then
         walkies v
       else
         [ ]);

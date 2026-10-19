@@ -1,4 +1,4 @@
-{ lib, newScope }:
+{ lib, newScope, pkgs }:
 
 lib.makeScope newScope (self: {
 
@@ -20,6 +20,10 @@ lib.makeScope newScope (self: {
 
   pbcli = self.callPackage ./pbcli { };
 
+  pkgsMusl = lib.makeScope pkgs.pkgsMusl.newScope self.packages;
+
+  pkgsStatic = lib.makeScope pkgs.pkgsStatic.newScope self.packages;
+
   pom1 = self.callPackage ./pom1 { };
 
   red-view = self.callPackage ./red-view { };
@@ -28,7 +32,7 @@ lib.makeScope newScope (self: {
 
   terminal-to-html = self.callPackage ./terminal-to-html { };
 
-  ungoogled-extensions = self.callPackage ./ungoogled-extensions { };
+  ungoogled-extensions = lib.recurseIntoAttrs (self.callPackage ./ungoogled-extensions { });
 
   uxncli = self.callPackage ./uxncli { };
 
