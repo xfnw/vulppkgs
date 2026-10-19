@@ -16,6 +16,8 @@ lib.makeScope newScope (self: {
 
   jugulans = self.callPackage ./jugulans { };
 
+  npinsMinimal = self.callPackage ./npinsMinimal { };
+
   metrics-relay = self.callPackage ./metrics-relay { };
 
   pbcli = self.callPackage ./pbcli { };
