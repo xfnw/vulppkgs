@@ -21,12 +21,12 @@ lib.makeScope newScope (self: {
   pbcli = self.callPackage ./pbcli { };
 
   pkgsCross = lib.mapAttrs
-    (_: set: lib.makeScope set.newScope self.packages)
+    (_: set: set.callPackage ./. { })
     pkgs.pkgsCross;
 
-  pkgsMusl = lib.makeScope pkgs.pkgsMusl.newScope self.packages;
+  pkgsMusl = pkgs.pkgsMusl.callPackage ./. { };
 
-  pkgsStatic = lib.makeScope pkgs.pkgsStatic.newScope self.packages;
+  pkgsStatic = pkgs.pkgsStatic.callPackage ./. { };
 
   pom1 = self.callPackage ./pom1 { };
 
