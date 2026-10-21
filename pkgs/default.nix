@@ -4,7 +4,7 @@ lib.makeScope newScope (self: {
 
   commoned = self.callPackage ./commoned { };
 
-  dotbin = self.callPackage ./dotbin { };
+  dotbin = lib.recurseIntoAttrs (self.callPackage ./dotbin { });
 
   drifblim = self.callPackage ./drifblim { };
 
