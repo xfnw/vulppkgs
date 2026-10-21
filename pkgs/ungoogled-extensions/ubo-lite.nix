@@ -7,15 +7,15 @@ let
   crx = fetchurl {
     # returned from:
     # https://clients2.google.com/service/update2/crx?acceptformat=crx2,crx3&prodversion=${chromiumMajorVersion}.0&x=id%3Dddkjiahejlhfcafbddmgiahcphecmpfh%26installsource%3Dondemand%26uc
-    url = "https://clients2.googleusercontent.com/crx/blobs/AZPVhcRYe4sOX4czxaaPxT3nVyfO8lRbp_p9e6Y4yNYVdUcK-wxqKE0sQaqlVLIxO-KTgEOdZK5Ktmf1qE00-EJKrCrTdK6bkMRrSn5_Znc34sd_N7JYlX6_7xlhYWKVHZUGAMZSmuUG6Xe5Tcl2Jcrk-dGTNkrFF2fBRg/DDKJIAHEJLHFCAFBDDMGIAHCPHECMPFH_2026_1018_2229_0.crx";
-    hash = "sha256-VZ0Q733LlrxOgS3ms/8MLmx6vKV4Mk2Nev19jPeKbdc=";
+    url = "https://clients2.googleusercontent.com/crx/blobs/AZPVhcQcOwuqA1tF-hrKU1DhlpuJl0y3IzyP0OGgqf7AIQz-HLJKzyqSxZZL0meFhNE7DfBRGnn4eKJiaZ1lCgMDeI5xPn-wP39WpR4TJeMqYcmVvl_m05mdLry385oFMgoiAMZSmuWIGDIO0S3S583SKbmRw7fdDFEvDA/DDKJIAHEJLHFCAFBDDMGIAHCPHECMPFH_2026_1021_1354_0.crx";
+    hash = "sha256-CIdVnrnmhk6RtS5KDGYJla3kfAhNzHFQ7ZrnQ8lHWnY=";
   };
 in
 writeTextFile {
   name = "ubo-lite";
   text = builtins.toJSON {
     external_crx = crx;
-    external_version = "2026.1018.2229";
+    external_version = "2026.1021.1354";
   };
   destination = "/share/chromium/extensions/${extid}.json";
 }
