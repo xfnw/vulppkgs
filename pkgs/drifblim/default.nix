@@ -1,6 +1,7 @@
 { stdenv
 , stdenvNoCC
 , fetchFromSourcehut
+, makeWrapper
 , uxncli
 }:
 
@@ -56,18 +57,14 @@ in stdenvNoCC.mkDerivation {
     hash = "sha256-udq40XkkrPxxCE4iKtNQXzaqAiGvdMp0q055YLyU+o8=";
   };
 
+  nativeBuildInputs = [ makeWrapper ];
+
   buildPhase = ''
     ${uxncli}/bin/uxncli ${drifblim-bootstrap} src/drifblim.tal drifblim.rom
   '';
 
   installPhase = ''
     install -Dm 444 -t $out/bin drifblim.rom
-    # XXX: surely there is a better way to do this built into nixpkgs?
-    # i could only find convenience functions for wrapping executables
-    cat > $out/bin/drifblim <<EOF
-    #!/bin/sh
-    ${uxncli}/bin/uxncli $out/bin/drifblim.rom "\$@"
-    EOF
-    chmod +x $out/bin/drifblim
+    makeWrapper ${uxncli}/bin/uxncli $out/bin/drifblim --add-flag $out/bin/drifblim.rom
   '';
 }
