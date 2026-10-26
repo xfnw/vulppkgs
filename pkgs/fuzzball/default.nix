@@ -44,4 +44,8 @@ stdenv.mkDerivation rec {
   configurePhase = ''
     ./configure --with-pcre=${pcre.dev} --with-ssl=${openssl.dev} --prefix=$out
   '';
+
+  # needs legacy pcre, which was removed from nixpkgs
+  # https://github.com/fuzzball-muck/fuzzball/issues/755
+  meta.broken = true;
 }
