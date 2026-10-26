@@ -2,16 +2,16 @@
 , rustPlatform
 }:
 
-rustPlatform.buildRustPackage (finalAttrs: {
+rustPlatform.buildRustPackage {
   pname = "wahs";
-  version = "0-unstable-2026-10-14";
+  version = "0-unstable-2026-10-26";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = "wahs";
-    rev = "fdb0991269a260f5582100cb7e75b4cd56eee5e9";
-    hash = "sha256-zkNwf5F5STjQAbtp5gMawZW2bAoUNAlWI2wIb4eKJYk=";
+    rev = "94a9a82bf9beeddb9c035863100ac8c79c3193b7";
+    hash = "sha256-Y/ZNinvYjHsvoEumWKTXCPJMXHf9GczG6WeVAWPI/zI=";
   };
 
-  cargoHash = "sha256-e+U5FO3hpgpY8BkylcfYUGPyS7daUFmnjt7MD9tgFDo=";
-})
+  cargoHash = "sha256-Vzb9xgckZHQdbrQ9A526UDxe8tajMuYIjHXg5XE7lFw=";
+}
