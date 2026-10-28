@@ -36,6 +36,8 @@ lib.makeScope newScope (self: {
 
   reveng = self.callPackage ./reveng { };
 
+  snurl = self.callPackage ./snurl { };
+
   terminal-to-html = self.callPackage ./terminal-to-html { };
 
   ungoogled-extensions = lib.recurseIntoAttrs (self.callPackage ./ungoogled-extensions { });
