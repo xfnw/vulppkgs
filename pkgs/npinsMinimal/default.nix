@@ -1,5 +1,7 @@
 { rustPlatform
 , fetchFromGitHub
+, pkg-config
+, aws-lc
 }:
 
 rustPlatform.buildRustPackage (finalAttrs: {
@@ -16,6 +18,9 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-N0Hurb/cmXCDS7EZlYCct9WPbUMXvU+0TK1cBY6+mYc=";
 
   cargoBuildFlags = [ "-p" "npins" ];
+
+  nativeBuildInputs = [ pkg-config ];
+  buildInputs = [ aws-lc ];
 
   meta.mainProgram = "npins";
 })
