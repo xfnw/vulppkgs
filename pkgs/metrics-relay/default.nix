@@ -4,16 +4,16 @@
 
 rustPlatform.buildRustPackage {
   pname = "metrics-relay";
-  version = "0-unstable-2026-10-15";
+  version = "0-unstable-2026-11-07";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = "workspace";
-    rev = "542f2bbbe80a21104d81cb55c83883189e9e0b96";
-    hash = "sha256-UuFCXa/ZT2kOHohD5hXFqgPegh2cKK4jjzdT11nxwt4=";
+    rev = "6525e03d751fca93ba5a20fa58977ed6f110fad3";
+    hash = "sha256-t0qS/7zE/qOBf1obvJqm8L7txPpE9UZUkLnaecyCS9s=";
   };
 
-  cargoHash = "sha256-MK3l+xCQEn3surt1N6qXcoL2qdYKD+OfCmLVTfrBF1s=";
+  cargoHash = "sha256-tRNUSR2ezD2WZEJmSnYQfisXGRQHNodCbn6I8tP31Z4=";
 
   buildAndTestSubdir = "crates/metrics-relay";
 }
