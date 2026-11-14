@@ -4,13 +4,13 @@
 
 stdenvNoCC.mkDerivation {
   pname = "dotbin";
-  version = "0-unstable-2025-11-02";
+  version = "0-unstable-2026-11-14";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = "dotfiles";
-    rev = "366d87230cfa0a4713638484acf844c183bae626";
-    hash = "sha256-3LbnGWXGpZy9Xg2Xs7KSkr/BHf7/LvGEDXk8dRvyGjg=";
+    rev = "f40a1a8840c5e94a6258d0c6b31b1011fbd75355";
+    hash = "sha256-jDTWqoGk+p2leK841RNL6z7C/NPDBm7Q9CADKLF54/U=";
   };
 
  installPhase = ''
