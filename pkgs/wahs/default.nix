@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage {
   pname = "wahs";
-  version = "0-unstable-2026-10-26";
+  version = "0-unstable-2026-11-15";
 
   src = fetchFromGitHub {
     owner = "xfnw";
     repo = "wahs";
-    rev = "94a9a82bf9beeddb9c035863100ac8c79c3193b7";
-    hash = "sha256-Y/ZNinvYjHsvoEumWKTXCPJMXHf9GczG6WeVAWPI/zI=";
+    rev = "2809d33c22925a3ae9be768d1008767b546d6142";
+    hash = "sha256-yVAVR3aUichMCVWZRGJngqImuo90l6stW7qYTRnlXM8=";
   };
 
-  cargoHash = "sha256-Vzb9xgckZHQdbrQ9A526UDxe8tajMuYIjHXg5XE7lFw=";
+  cargoHash = "sha256-PU8pdM4+lNsL0xp/t//3ywnlwa481Ohfp9xaRUqnU3c=";
 
   nativeBuildInputs = [ pkgconf ];
   buildInputs = [ zstd ];
