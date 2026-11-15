@@ -1,6 +1,6 @@
 { fetchFromGitHub
 , rustPlatform
-, pkg-config
+, pkgconf
 , openssl
 }:
 
@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-stNRcS5N4QmoYPAgCyOzdbHKeqewGxIzeDIrH8ovZq0=";
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [ pkgconf ];
 
   buildInputs = [ openssl ];
 

@@ -1,6 +1,6 @@
 { fetchFromGitHub
 , rustPlatform
-, pkg-config
+, pkgconf
 , zstd
 }:
 
@@ -17,6 +17,6 @@ rustPlatform.buildRustPackage {
 
   cargoHash = "sha256-Vzb9xgckZHQdbrQ9A526UDxe8tajMuYIjHXg5XE7lFw=";
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [ pkgconf ];
   buildInputs = [ zstd ];
 }

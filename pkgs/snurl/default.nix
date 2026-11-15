@@ -1,7 +1,7 @@
 { stdenv
 , fetchFromCodeberg
 , zig
-, pkg-config
+, pkgconf
 , openssl
 }:
 
@@ -16,7 +16,7 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-gwZGIkEJv3VjiA0EXOMg5ASp/iuJ9S9ahdy6jUbedCs=";
   };
 
-  nativeBuildInputs = [ zig pkg-config ];
+  nativeBuildInputs = [ zig pkgconf ];
   buildInputs = [ openssl ];
   strictDeps = true;
 

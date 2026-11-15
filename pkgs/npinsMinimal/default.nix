@@ -1,6 +1,6 @@
 { rustPlatform
 , fetchFromGitHub
-, pkg-config
+, pkgconf
 , aws-lc
 }:
 
@@ -19,7 +19,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoBuildFlags = [ "-p" "npins" ];
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [ pkgconf ];
   buildInputs = [ aws-lc ];
 
   meta.mainProgram = "npins";
